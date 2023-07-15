@@ -28,10 +28,9 @@ public class HomePage extends BasePage{
         return this;
     }
     public HomePage editName(String name) {
-        findElement(editField);
-        actions.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.BACK_SPACE));
-        actions.sendKeys(name);
-        actions.sendKeys(Keys.ENTER);
+        findElement(editField).sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.BACK_SPACE));
+        editField.sendKeys(name);
+        editField.sendKeys(Keys.ENTER);
         return this;
         }
     public String verificationMessage(){

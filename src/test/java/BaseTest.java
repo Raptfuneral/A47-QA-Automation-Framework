@@ -20,7 +20,7 @@ import java.net.URL;
 import java.time.Duration;
 import java.util.HashMap;
 
-public class BaseTest {
+public class BaseTest{
 
     protected static WebDriver driver;
     protected static WebDriverWait wait;
@@ -61,15 +61,12 @@ public class BaseTest {
                 edgeOptions.addArguments("--disable-notifications");
                 return driver = new EdgeDriver(edgeOptions);
             case "grid-firefox":
-                WebDriverManager.firefoxdriver().setup();
                 caps.setCapability("browserName", "firefox");
                 return driver = new RemoteWebDriver(URI.create(GridURL).toURL(), caps);
             case "grid-edge":
-                WebDriverManager.edgedriver().setup();
                 caps.setCapability("browserName", "MicrosoftEdge");
                 return driver = new RemoteWebDriver(URI.create(GridURL).toURL(), caps);
             case "grid-chrome":
-                WebDriverManager.chromedriver().setup();
                 caps.setCapability("browserName", "chrome");
                 return driver = new RemoteWebDriver(URI.create(GridURL).toURL(), caps);
             case "cloud":

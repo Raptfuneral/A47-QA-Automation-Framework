@@ -47,8 +47,13 @@ public class BaseTest{
     private static WebDriver pickBrowser(String browser) throws MalformedURLException{
         DesiredCapabilities caps = new DesiredCapabilities();
         String GridURL = "http://192.168.1.75:4444";
+        ChromeOptions chromeOptions = new ChromeOptions();
+        chromeOptions.addArguments("--remote-allow-origins=*");
+        chromeOptions.addArguments("--disable-notifications");
 
         switch (browser){
+            case "chrome":
+                return driver = new ChromeDriver(chromeOptions);
             case "firefox":
                 WebDriverManager.firefoxdriver().setup();
                 FirefoxOptions foxOptions = new FirefoxOptions();
@@ -73,9 +78,6 @@ public class BaseTest{
                 return lambdaTest();
             default:
                 WebDriverManager.chromedriver().setup();
-                ChromeOptions chromeOptions = new ChromeOptions();
-                chromeOptions.addArguments("--remote-allow-origins=*");
-                chromeOptions.addArguments("--disable-notifications");
                 return driver = new ChromeDriver(chromeOptions);
         }
     }

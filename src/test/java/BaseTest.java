@@ -91,6 +91,7 @@ public class BaseTest{
         wait = new WebDriverWait(getDriver(), Duration.ofSeconds(5));
         url = BaseURL;
         getDriver().get(url);
+        driver.manage().window().maximize();
     }
     @AfterMethod
     public void closeBrowser(){

@@ -12,7 +12,7 @@ public class Homework26 extends BaseTest{
     HomePage homePage = new HomePage(getDriver());
 
     loginPage.enterEmail(email).enterPassword(password).clickSubmit();
-    homePage.selectPlaylist().selectEdit().editName("newName1");
+    homePage.selectPlaylist().selectEdit().editName("newName17");
 
     Assert.assertTrue(homePage.verificationMessage().contains(message));
 }
